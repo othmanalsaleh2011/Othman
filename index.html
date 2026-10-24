@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#080d20;--panel:#121b38;--panel2:#1b2850;--mint:#66ffe0;--violet:#b69aff;--pink:#ff8ec7;--gold:#ffe28a;--text:#f8f8ff;--muted:#c2c9e2;--line:#38466f}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at 8% 0%,#533a8b66,transparent 34%),radial-gradient(ellipse at 95% 18%,#087e9970,transparent 32%),radial-gradient(ellipse at 55% 100%,#572c7d55,transparent 42%),var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text);min-height:100vh}
+html{min-height:100%;}body{margin:0;padding-bottom:calc(76px + env(safe-area-inset-bottom));background:radial-gradient(ellipse at 8% 0%,#533a8b66,transparent 34%),radial-gradient(ellipse at 95% 18%,#087e9970,transparent 32%),radial-gradient(ellipse at 55% 100%,#572c7d55,transparent 42%),var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text);min-height:100vh}
 header{padding:22px 16px 18px;background:linear-gradient(120deg,#211b49f5,#123e58f5,#173458f5);border-bottom:1px solid #8c83dc55;position:sticky;top:0;z-index:4;box-shadow:0 12px 35px #0005;backdrop-filter:blur(18px)}
 .brand{display:flex;align-items:center;gap:13px}.logo{width:56px;height:56px;flex:0 0 56px;border-radius:19px;background:linear-gradient(135deg,#66ffe0,#8eb8ff 55%,#d7a1ff);color:#151332;display:grid;place-items:center;font-size:30px;font-weight:900;box-shadow:0 0 28px #66ffe044}
 h1{font-size:20px;margin:0 0 4px}header p{margin:0;color:#e0e5ff;font-size:12px}.topnote{margin-top:16px;border:1px solid #ffffff25;border-radius:17px;background:linear-gradient(120deg,#ffffff15,#ffffff07);padding:13px;color:#f0f2ff;font-size:13px;line-height:1.8}
@@ -18,7 +18,7 @@ input,select,textarea{width:100%;padding:13px;border-radius:14px;border:1px soli
 .elements{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.el{background:linear-gradient(145deg,#26335e,#162543);border:1px solid #596d9c;border-radius:10px;padding:7px 2px;text-align:center;min-height:64px;cursor:pointer}.el strong{display:block;color:var(--mint);font-size:17px}.el small{font-size:10px;color:#e0e5ff}.el span{font-size:10px;display:block;color:#bdc9e8}.lesson{padding:13px 0;border-bottom:1px solid #3a456a}.lesson:last-child{border:0}.option{display:block;width:100%;text-align:right;background:#202d54;color:white;border:1px solid #52699a;padding:12px;border-radius:13px;margin:8px 0;cursor:pointer}.option.correct{border-color:#66ffe0;background:#15564f}.option.wrong{border-color:#ff8a9e;background:#5a2c4a}
 .owner-card{background:radial-gradient(circle at top left,#4d4ba455,transparent 42%),radial-gradient(circle at bottom right,#007f8050,transparent 38%),linear-gradient(145deg,#20254b,#101b34);border-color:#7772ba}.owner-mark{display:inline-block;background:#66ffe018;border:1px solid #66ffe066;color:var(--mint);padding:5px 10px;border-radius:30px;font-size:12px;margin-bottom:10px}.contact-link{display:flex;align-items:center;gap:10px;padding:12px;margin:9px 0;background:#0b142a;border:1px solid #4b5b85;border-radius:14px;color:#f4f5ff;text-decoration:none;overflow-wrap:anywhere}.contact-link span:first-child{font-size:21px}.quote{font-size:16px;line-height:2;color:#effffb;border-right:3px solid var(--mint);padding-right:12px;margin:14px 0}
 .eq-pair{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:7px;align-items:center;direction:ltr}.eq-pair input{min-width:0;text-align:center;margin:7px 0 13px}.fixed-arrow{font-size:28px;font-weight:900;text-align:center;color:var(--mint);text-shadow:0 0 15px #66ffe055}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#090f25ed;backdrop-filter:blur(17px);border-top:1px solid #4b4e7a;display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;border:0;color:#d0d5f0;font-size:11px;display:grid;gap:3px;justify-items:center}.bottom span{font-size:20px}
+.bottom{position:fixed!important;bottom:0!important;left:0!important;right:0!important;background:#090f25ed;backdrop-filter:blur(17px);border-top:1px solid #4b4e7a;display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:9999;transform:none!important;will-change:auto;isolation:isolate;padding-bottom:calc(10px + env(safe-area-inset-bottom));}.bottom button{background:none;border:0;color:#d0d5f0;font-size:11px;display:grid;gap:3px;justify-items:center}.bottom span{font-size:20px}
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.elements{grid-template-columns:repeat(8,minmax(0,1fr))}main{padding-left:20px;padding-right:20px}}
 .featured-complete{border:1px solid rgba(92,255,220,.8)!important;box-shadow:0 0 22px rgba(92,255,220,.16),inset 0 0 20px rgba(120,100,255,.12);background:linear-gradient(135deg,rgba(49,224,204,.16),rgba(147,111,255,.22))!important}
 
@@ -27,6 +27,88 @@ body.glow-on .tile,body.glow-on .card,body.glow-on .el,body.glow-on .option{box-
 body.glow-on header{box-shadow:0 0 24px color-mix(in srgb,var(--mint) 30%,transparent),0 12px 35px #0005}
 body.glow-on .logo{box-shadow:0 0 12px var(--mint),0 0 32px color-mix(in srgb,var(--mint) 60%,transparent)}
 body.glow-on .owner-card{border-color:var(--mint)}
+
+/* لوحة المالك: طابع ألماسي فاخر ومنظم */
+#owner .owner-card{position:relative;overflow:hidden;border:1px solid rgba(190,224,255,.52);background:radial-gradient(ellipse at 8% 0%,rgba(126,226,255,.22),transparent 34%),radial-gradient(ellipse at 95% 18%,rgba(190,151,255,.22),transparent 36%),linear-gradient(145deg,#17264b 0%,#111a38 48%,#142b48 100%);box-shadow:0 12px 30px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.13)}
+#owner .owner-card:before{content:"✧  ◈  ✦  ◇  ✧";position:absolute;top:8px;left:12px;color:rgba(200,236,255,.28);font-size:20px;letter-spacing:5px;pointer-events:none}
+#owner .owner-mark{background:linear-gradient(120deg,rgba(111,232,255,.18),rgba(194,160,255,.2));border:1px solid rgba(190,224,255,.58);color:#dff8ff;box-shadow:0 0 18px rgba(126,226,255,.12)}
+#owner #ownerTools{margin-top:15px}
+#owner #ownerTools h3{position:relative;margin:22px 0 12px;padding:13px 14px;border-radius:14px;border:1px solid rgba(169,205,255,.23);background:linear-gradient(100deg,rgba(81,141,204,.23),rgba(145,112,218,.22),rgba(73,213,218,.12));color:#eff9ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+#owner #ownerTools h3:before{content:"✧";color:#aeeeff;margin-left:8px;text-shadow:0 0 10px #82eaff}
+#owner #ownerTools hr{border:0;height:1px;margin:22px 0;background:linear-gradient(90deg,transparent,rgba(174,225,255,.65),rgba(194,160,255,.55),transparent)}
+#owner #ownerTools label{color:#dcecff;font-size:13px;margin:12px 2px 5px}
+#owner #ownerTools input:not([type=checkbox]):not([type=color]),#owner #ownerTools textarea,#owner #ownerTools select{background:linear-gradient(145deg,rgba(8,17,41,.96),rgba(22,33,67,.96));border:1px solid rgba(151,190,242,.42);box-shadow:inset 0 1px 5px rgba(0,0,0,.2)}
+#owner #ownerTools input[type=color]{height:42px;padding:4px;border:1px solid rgba(177,215,255,.58);background:#101a37;border-radius:14px;box-shadow:0 0 0 2px rgba(151,190,242,.07)}
+#owner #ownerTools .primary{background:linear-gradient(115deg,#8ff5f1 0%,#a9d6ff 48%,#d4b7ff 100%);box-shadow:0 5px 18px rgba(128,211,255,.2);border:1px solid rgba(255,255,255,.38)}
+#owner #ownerTools .secondary{background:linear-gradient(120deg,#243c68,#35416f 55%,#3a3265);border:1px solid rgba(163,199,255,.42)}
+#owner #ownerTools .result{background:linear-gradient(135deg,rgba(7,17,40,.96),rgba(20,32,64,.96));border:1px solid rgba(149,190,244,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+#owner #ownerTools button{margin-top:5px}
+#owner #ownerTools .muted{color:#c4d4ef}
+@media(max-width:480px){#owner .owner-card{padding:14px}#owner #ownerTools h3{font-size:15px;padding:12px}#owner #ownerTools button{max-width:100%}}
+
+
+/* Owner dashboard */
+.owner-dashboard-hero{padding:22px;border:1px solid #9fdcff88;border-radius:22px;background:radial-gradient(circle at 10% 5%,#72eaff35,transparent 38%),radial-gradient(circle at 90% 0%,#b69aff38,transparent 40%),linear-gradient(140deg,#17264b,#10152f 60%,#15334a);box-shadow:0 12px 32px #0005,inset 0 1px #ffffff22;margin:12px 0 18px;position:relative;overflow:hidden}.owner-dashboard-hero:after{content:'✧  ◈  ✦  ◇  ✧';display:block;color:#c4edff66;letter-spacing:8px;margin-top:12px}.owner-dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.owner-dashboard-tile{min-height:100px;text-align:right;padding:16px;border-radius:17px;border:1px solid #9ecfff55;background:linear-gradient(145deg,#202c53,#121a35);color:#f4f8ff;box-shadow:0 7px 18px #0003}.owner-dashboard-tile b{display:block;margin:8px 0 4px}.owner-dashboard-tile small{color:#c3d7f5;line-height:1.6}.owner-dashboard-tile .od-icon{font-size:25px}@media(max-width:420px){.owner-dashboard-grid{gap:8px}.owner-dashboard-tile{padding:12px;min-height:95px}}
+
+
+/* الهوية الماسية اللامعة — تحسين بصري فقط */
+:root{--bg:#070b1b;--panel:#151c3b;--panel2:#222b55;--mint:#9ffff2;--violet:#d5b5ff;--pink:#ffc5ec;--gold:#fff1b8;--line:#6874b8}
+body{background:radial-gradient(ellipse at 15% 8%,#7655c966,transparent 32%),radial-gradient(ellipse at 92% 24%,#00c7d344,transparent 30%),radial-gradient(ellipse at 52% 88%,#8b4ed444,transparent 36%),linear-gradient(145deg,#070b1b,#111735 52%,#071b2b);background-attachment:fixed}
+body:before{content:"✧   ·      ✦        ⋄       ✧       ·    ✦";position:fixed;inset:0;pointer-events:none;z-index:0;color:#d8faff20;font-size:clamp(22px,4vw,42px);letter-spacing:1.8em;line-height:2.8;overflow:hidden;word-break:break-all;animation:diamondDrift 18s linear infinite}
+header,main,.bottom{isolation:isolate}
+header{background:linear-gradient(115deg,#20194df5,#123e5af5 48%,#31245df5);border-bottom:1px solid #b8a5ff99;box-shadow:0 8px 35px #030615aa,0 0 28px #9a7cff30}
+.logo{position:relative;overflow:hidden;border:1px solid #ffffffbd;background:linear-gradient(135deg,#fff9d9 0%,#9ffff2 23%,#91baff 49%,#f2c4ff 72%,#fff5d0);box-shadow:0 0 15px #a6fff0a8,0 0 38px #b69aff66,inset 0 0 14px #fff}
+.logo:after{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(105deg,transparent 42%,#ffffffdd 49%,transparent 56%);transform:translateX(-100%);animation:diamondSweep 4s ease-in-out infinite}
+.topnote{border-color:#d5c7ff75;background:linear-gradient(110deg,#ffffff20,#9ffff20b,#d5b5ff20);box-shadow:inset 0 1px #ffffff25,0 0 18px #8e9dff18}
+.card,.tile{border-color:#a9baff70;background:linear-gradient(145deg,#25284fef,#111a37f5 65%,#102b42f2);box-shadow:0 12px 28px #02061566,inset 0 1px #ffffff24;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;}
+.card{position:relative;overflow:hidden}
+.card:before,.tile:after{content:"";position:absolute;top:0;left:-130%;width:65%;height:100%;pointer-events:none;background:linear-gradient(105deg,transparent,#ffffff0a 35%,#ffffff2b 50%,#b8ffff12 62%,transparent);transform:skewX(-18deg);animation:cardGleam 9s ease-in-out infinite}
+.card:after{content:"✦";position:absolute;right:13px;top:10px;font-size:12px;color:#dffcff88;text-shadow:0 0 9px #b5ffff;pointer-events:none;animation:twinkle 3.5s ease-in-out infinite}
+.tile{box-shadow:0 10px 25px #02061577,inset 0 1px #ffffff2b}
+.tile:active,.card:active{transform:translateY(-1px)}
+.tile .emoji{filter:drop-shadow(0 0 7px #9ffff288)}
+.section-title{ text-shadow:0 0 18px #b6a4ff55 }
+.section-title:before{background:linear-gradient(#fff5c4,#9ffff2 45%,#c8aaff);box-shadow:0 0 9px #9ffff2,0 0 20px #b69aff99}
+button.primary{background:linear-gradient(115deg,#fff2bb,#a1fff0 35%,#a9c4ff 67%,#e2b7ff);box-shadow:0 5px 18px #8df9ed35,inset 0 1px #ffffffb5;border:1px solid #ffffff75}
+button.secondary,.back{border-color:#9aa9e4;background:linear-gradient(120deg,#303766,#164657);box-shadow:inset 0 1px #ffffff25,0 4px 12px #02061540}
+input,select,textarea{border-color:#7888c0;background:linear-gradient(120deg,#090f26,#111b37);box-shadow:inset 0 1px 5px #0005}
+input:focus,select:focus,textarea:focus{border-color:#9ffff2;box-shadow:0 0 0 3px #9ffff222,0 0 18px #9ffff222}
+.result{border-color:#7f9bc7;background:linear-gradient(135deg,#0b1830,#171a3c);box-shadow:inset 0 1px #ffffff15,0 0 14px #8a9bff10}
+.owner-card{background:radial-gradient(circle at 8% 8%,#8c73df40,transparent 38%),radial-gradient(circle at 92% 95%,#19e4d32b,transparent 38%),linear-gradient(145deg,#272651,#101a36 70%,#0d3040);border-color:#c5b0ff99;box-shadow:0 0 0 1px #b69aff24,0 12px 30px #02061588,inset 0 1px #ffffff30}
+.owner-mark{background:linear-gradient(100deg,#d7c6ff20,#9ffff21a);border-color:#c8b5ff99;color:#e7faff;box-shadow:0 0 14px #b69aff20}
+.bottom{background:linear-gradient(90deg,#080d21f5,#151637f5,#082333f5);border-top-color:#9fafff80;box-shadow:0 -8px 28px #03061566}
+.el{border-color:#819ad0;background:linear-gradient(145deg,#2b3968,#132747);box-shadow:inset 0 1px #ffffff25}
+.el strong{color:#a6fff2;text-shadow:0 0 9px #9ffff266}
+@keyframes diamondSweep{0%,18%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+@keyframes cardGleam{0%,60%{left:-130%}100%{left:160%}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(20deg)}}
+@keyframes diamondDrift{0%{transform:translateY(-2%)}100%{transform:translateY(2%)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+
+/* بريق ألماسي أقوى — مؤثرات افتتاحية ولمعان واضح */
+body:after{content:"";position:fixed;inset:-30%;pointer-events:none;z-index:0;opacity:.42;background:conic-gradient(from 0deg at 50% 50%,transparent 0 18%,#9ffff20b 19%,transparent 24% 43%,#e7d5ff12 44%,transparent 49% 70%,#ffffff0a 71%,transparent 76%);animation:prismRotate 32s linear infinite}
+header,main,.bottom{position:relative;z-index:1}
+header{box-shadow:0 0 25px #9ffff255,0 0 60px #c6a4ff35,0 12px 35px #0008}
+.brand h1{background:linear-gradient(90deg,#fffbdc,#aafff3,#d7c4ff,#fffbdc);background-size:220% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:titlePrism 5s linear infinite;text-shadow:0 0 22px #b7faff22}
+.logo{animation:logoPulse 2.8s ease-in-out infinite}
+.topnote{animation:noteGlow 4s ease-in-out infinite}
+.tile,.card,.owner-dashboard-tile,.owner-card{border-color:#c7eaff88;box-shadow:0 0 0 1px #b6c8ff18,0 0 22px #9ffff21c,0 12px 30px #0006,inset 0 1px #ffffff38}
+.tile:focus-visible,button:focus-visible{outline:2px solid #fff2b8;outline-offset:3px}
+.tile:before{width:150px;height:150px;left:-50px;top:-70px;background:radial-gradient(circle,#bafff044, #d9c0ff15 45%,transparent 70%);animation:gemPulse 3.8s ease-in-out infinite}
+.card:before,.tile:after{animation-duration:5.2s}
+.primary{position:relative;overflow:hidden}
+.primary:after{content:"";position:absolute;top:-60%;bottom:-60%;left:-80%;width:38%;transform:rotate(20deg);background:linear-gradient(90deg,transparent,#ffffffd9,transparent);animation:buttonSpark 3s ease-in-out infinite;pointer-events:none}
+.section-title{filter:drop-shadow(0 0 8px #b8ffff35)}
+.bottom{box-shadow:0 -5px 30px #9ffff222;border-top:1px solid #d6c5ff88}
+@keyframes prismRotate{to{transform:rotate(360deg)}}
+@keyframes titlePrism{to{background-position:220% center}}
+@keyframes logoPulse{0%,100%{filter:brightness(1);box-shadow:0 0 15px #a6fff0a8,0 0 38px #b69aff66,inset 0 0 14px #fff}50%{filter:brightness(1.25);box-shadow:0 0 25px #fff,0 0 55px #9ffff2a8,0 0 75px #c6a4ff66,inset 0 0 20px #fff}}
+@keyframes noteGlow{0%,100%{box-shadow:inset 0 1px #ffffff25,0 0 15px #8e9dff18}50%{box-shadow:inset 0 1px #ffffff55,0 0 25px #9ffff238,0 0 38px #c6a4ff1f}}
+@keyframes gemPulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes buttonSpark{0%,35%{left:-80%}75%,100%{left:150%}}
+@media(prefers-reduced-motion:reduce){body:after{display:none}}
+
 </style>
 </head>
 <body>
@@ -37,28 +119,44 @@ body.glow-on .owner-card{border-color:var(--mint)}
 <div class="grid">
 <button class="tile featured-complete" onclick="show('complete')"><span class="emoji">🧩</span><b>إكمال المعادلات</b><small>أكمل المعادلة واكتشف النواتج</small></button>
 <button class="tile" onclick="show('periodic')"><span class="emoji">🧩</span><b>الجدول الدوري</b><small>ابحث عن العناصر وخصائصها الأساسية</small></button>
-<button class="tile" onclick="show('compounds')"><span class="emoji">📖</span><b>مكتبة المركبات</b><small>أسماء عربية وإنجليزية وصيغ</small></button><button class="tile" onclick="show('productquiz')"><span class="emoji">🧪</span><b>اختبار النواتج والكميات</b><small>معادلات موزونة وحساب كميات</small></button><button class="tile" onclick="show('equations')"><span class="emoji">⚗️</span><b>موازنة المعادلات</b><small>وازن معادلات بسيطة وتعلّم الفكرة</small></button>
+<button class="tile" onclick="show('productquiz')"><span class="emoji">🧪</span><b>اختبار النواتج والكميات</b><small>معادلات موزونة وحساب كميات</small></button><button class="tile" onclick="show('equations')"><span class="emoji">⚗️</span><b>موازنة المعادلات</b><small>وازن معادلات بسيطة وتعلّم الفكرة</small></button>
 <button class="tile" onclick="show('lessons')"><span class="emoji">📚</span><b>الدروس</b><small>مفاهيم الكيمياء من الأساسيات</small></button>
 <button class="tile" onclick="show('quiz')"><span class="emoji">🎯</span><b>اختبر معلوماتك</b><small>أسئلة قصيرة مع تصحيح فوري</small></button>
-<button class="tile" onclick="show('lab')"><span class="emoji">🧪</span><b>المختبر الافتراضي</b><small>محاكاة تعليمية آمنة</small></button>
-<button class="tile" onclick="show('calculator')"><span class="emoji">🧮</span><b>الحاسبة الكيميائية</b><small>احسب الكتلة المولية للمركبات</small></button>
+
+
 <button class="tile" onclick="show('owner')"><span class="emoji">👨‍🔬</span><b>قسم المالك</b><small>عثمان الصالح وطرق التواصل</small></button>
 </div>
 <div class="card"><b>✨ رسالة لك</b><p class="muted" id="homeWelcomeText">كل فكرة تفهمها اليوم تقرّبك من حلمك غدًا؛ واصل الدراسة، فالعلم قوة، وبالفضول والصبر تستطيع اكتشاف أشياء عظيمة!</p></div><div class="card"><b>💬 عبارات ملهمة</b><div id="publicPhrases" class="quote">العلم يبدأ بسؤال، والنجاح يبدأ بمحاولة.</div></div>
 </section>
 <section id="periodic" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">الجدول الدوري</h2><input id="elementSearch" placeholder="ابحث بالاسم أو الرمز أو العدد الذري..." oninput="renderElements()"><div id="elements" class="elements"></div><div id="elementInfo" class="result">اضغط على أي عنصر لعرض معلوماته.</div></section>
-<section id="compounds" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">مكتبة المركبات والصيغ</h2><div class="card"><p class="muted">ابحث بالعربية أو الإنجليزية أو الصيغة الكيميائية. المكتبة الحالية تضم مركبات شائعة وقابلة للتوسّع.</p><input id="compoundSearch" placeholder="مثال: ماء أو water أو H2O" oninput="renderCompounds()"><div id="compoundList"></div></div></section>
+
 <section id="productquiz" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">اختبار النواتج والكميات</h2><div class="card"><p class="muted">اختر تفاعلًا معروفًا وأدخل كمية المتفاعل المحدد بالمول لحساب الناتج النظري.</p><label>التفاعل</label><select id="reactionSelect" onchange="renderReaction()"><option value="water">تكوّن الماء</option><option value="co2">احتراق الكربون الكامل</option><option value="salt">تعادل حمض الهيدروكلوريك وهيدروكسيد الصوديوم</option><option value="rust">تكوّن أكسيد الحديد الثلاثي</option></select><label>كمية المتفاعل (مول)</label><input id="reactantMoles" type="number" min="0" step="0.1" value="2" oninput="renderReaction()"><div id="reactionResult" class="result"></div><p class="muted">حساب نظري مبسط يفترض تفاعلًا كاملًا وتوفر المتفاعلات بالنسب المناسبة. لا تجرّب التفاعلات الخطرة في المنزل.</p></div></section>
 <section id="equations" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">موازنة المعادلات</h2><div class="card"><p class="muted">اكتب المتفاعلات والنواتج مفصولة بعلامة +، واستخدم → أو = بين الطرفين. مثال: H2 + O2 → H2O</p><label>المتفاعلات والنواتج</label><div class="eq-pair"><input id="eqLeft" value="H2 + O2" dir="ltr" aria-label="المتفاعلات" placeholder="H2 + O2"><div class="fixed-arrow" aria-label="ينتج">→</div><input id="eqRight" value="H2O" dir="ltr" aria-label="النواتج" placeholder="H2O"></div><p class="muted">السهم ثابت بين الحقلين ولا يمكن حذفه. اكتب المتفاعلات يسارًا والنواتج يمينًا.</p><label>نوع التفاعل (اختياري للتصنيف)</label><select id="reactionType"><option value="auto">تحديد تلقائي قدر الإمكان</option><option value="synthesis">اتحاد / تكوين</option><option value="decomposition">تحلّل</option><option value="single">إحلال أحادي</option><option value="double">إحلال مزدوج</option><option value="combustion">احتراق</option><option value="neutralization">تعادل حمض وقاعدة</option><option value="redox">أكسدة واختزال</option></select><button class="primary" onclick="balanceEquation()">وازن المعادلة وصنّفها</button><div id="eqResult" class="result">اكتب المتفاعلات والنواتج، وستظهر المعادلة الموزونة تلقائيًا.</div><p class="muted">تتحقق الأداة من حفظ ذرات العناصر للصيغ المدخلة، وتعرض تنبيهًا إذا لم تتمكن من إيجاد حل موثوق. صحة النواتج تحتاج معرفة كيميائية.</p></div></section>
+<section id="ownerDashboard" class="hidden">
+<button class="back" onclick="ownerLock()">⟵ تسجيل الخروج من لوحة المالك</button>
+<div class="owner-dashboard-hero"><div class="owner-mark">💎 لوحة الإدارة الخاصة</div><h2 style="margin:8px 0">مرحبًا بك يا عثمان</h2><p class="muted">مركز إدارة تطبيق «فن الكيمياء مع عثمان الصالح» — اختر القسم الذي تريد معاينته أو إدارته.</p></div>
+<div class="card"><h3>💎 أقسام التطبيق</h3><div class="owner-dashboard-grid">
+<button class="owner-dashboard-tile" onclick="show('home')"><span class="od-icon">🏠</span><b>الرئيسية</b><small>الصفحة الرئيسية والرسالة والعبارات</small></button>
+<button class="owner-dashboard-tile" onclick="show('periodic')"><span class="od-icon">⚛️</span><b>الجدول الدوري</b><small>معاينة العناصر ومعلوماتها</small></button>
+<button class="owner-dashboard-tile" onclick="show('productquiz')"><span class="od-icon">🧪</span><b>اختبار النواتج والكميات</b><small>معاينة أداة حساب النواتج</small></button>
+<button class="owner-dashboard-tile" onclick="show('equations')"><span class="od-icon">⚗️</span><b>موازنة المعادلات</b><small>فتح أداة الموازنة</small></button>
+<button class="owner-dashboard-tile" onclick="show('complete')"><span class="od-icon">📝</span><b>إكمال المعادلات</b><small>معاينة أداة إكمال التفاعلات</small></button>
+<button class="owner-dashboard-tile" onclick="show('lessons')"><span class="od-icon">📚</span><b>الدروس</b><small>عرض الدروس التعليمية</small></button>
+<button class="owner-dashboard-tile" onclick="show('quiz')"><span class="od-icon">✅</span><b>الاختبارات</b><small>فتح الاختبار</small></button>
+<button class="owner-dashboard-tile" onclick="show('owner')"><span class="od-icon">🛠️</span><b>إدارة المحتوى والإعدادات</b><small>تعديل الألوان والرسالة والدروس والأسئلة والعبارات</small></button>
+</div></div>
+<div class="card"><h3>🔐 حالة الإدارة</h3><p class="muted">تم التحقق من صلاحية حساب المالك. تعديلات الدروس والأسئلة والإعدادات المشتركة تعتمد على إعدادات وجداول Supabase وصلاحياتها.</p><button class="secondary" onclick="ownerLock()">قفل لوحة التحكم</button></div>
+</section>
 <section id="owner" class="hidden">
-<button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">قسم المالك</h2>
+<button class="back" onclick="show(currentIsAdmin?'ownerDashboard':'home')">→ لوحة المالك / الرئيسية</button><h2 class="section-title">قسم المالك</h2>
 <div class="card owner-card"><div class="owner-mark">⚛ إدارة التطبيق</div><h2 style="margin:0 0 4px;font-size:23px">عثمان الصالح</h2><p class="muted">إدارة وتطوير تطبيق «فن الكيمياء من عثمان»</p>
 <div class="quote">العلم نور، والدراسة طريقك لاكتشاف قدراتك وصناعة مستقبلك. لا تستصغر خطوة صغيرة؛ كل معلومة تتعلمها اليوم قد تصبح إنجازًا كبيرًا غدًا. اجعل فضولك بداية النجاح، وواصل التعلّم بثقة وصبر.</div>
 <a class="contact-link" href="https://wa.me/963952565135" target="_blank" rel="noopener"><span>💬</span><span><b>واتساب</b><br><small dir="ltr">+963 952 565 135</small></span></a>
 <a class="contact-link" href="https://t.me/+963952565135" target="_blank" rel="noopener"><span>✈️</span><span><b>تلغرام</b><br><small dir="ltr">+963 952 565 135</small></span></a>
 <a class="contact-link" href="mailto:os723504@gmail.com"><span>✉️</span><span><b>البريد الإلكتروني</b><br><small dir="ltr">os723504@gmail.com</small></span></a><p class="muted">للاستفسارات والملاحظات التعليمية، تواصل عبر إحدى الوسائل أعلاه.</p></div>
+<div class="card owner-card"><div class="owner-mark">☁️ اتصال قاعدة البيانات</div><p class="muted">اختبر الاتصال بمشروع Supabase. هذا الاختبار لا يغيّر أي بيانات.</p><button class="secondary" onclick="testSupabaseConnection()">اختبار الاتصال</button><div id="supabaseStatus" class="result">لم يتم اختبار الاتصال بعد.</div></div>
 <div class="card owner-card"><div class="owner-mark">🔐 لوحة تحكم المالك</div><p class="muted">أدخل كلمة مرور المالك لفتح أدوات التخصيص.</p>
-<div id="ownerLogin"><label>كلمة مرور المالك</label><input id="ownerPin" type="password" autocomplete="off" placeholder="كلمة المرور" onkeydown="if(event.key==='Enter')ownerUnlock()"><button class="primary" onclick="ownerUnlock()" id="ownerUnlockBtn">دخول لوحة التحكم</button><div id="ownerMsg" class="result">لوحة التحكم المحلية تعمل على هذا الجهاز فقط.</div></div>
+<div id="ownerLogin"><label>البريد الإلكتروني لحساب Supabase</label><input id="ownerEmail" type="email" autocomplete="username" placeholder="البريد الإلكتروني"><label>كلمة مرور حساب Supabase</label><input id="ownerPin" type="password" autocomplete="current-password" placeholder="كلمة المرور" onkeydown="if(event.key==='Enter')ownerUnlock()"><button class="primary" onclick="ownerUnlock()" id="ownerUnlockBtn">تسجيل الدخول إلى لوحة المالك</button><div id="ownerMsg" class="result">سجّل الدخول بحساب Supabase المضاف إلى app_admins.</div></div>
 <div id="ownerTools" class="hidden">
 <h3>🎨 ألوان التطبيق والحواف</h3><p class="muted">غيّر الألوان وشاهدها فورًا في هذه النسخة.</p>
 <label>اللون الأساسي / الحواف</label><input type="color" id="themeMint" value="#66ffe0" oninput="ownerApplyTheme(false)">
@@ -69,7 +167,7 @@ body.glow-on .owner-card{border-color:var(--mint)}
 <label><input id="glowToggle" type="checkbox" style="width:auto;margin-left:8px" checked onchange="ownerToggleGlow()"> تشغيل الحواف المضيئة</label>
 <hr><h3>📚 إدارة الدروس</h3><label>عنوان الدرس الجديد</label><input id="newLessonTitle" placeholder="مثال: الروابط الكيميائية"><label>شرح الدرس</label><textarea id="newLessonBody" rows="4" placeholder="اكتب الشرح هنا..."></textarea><button class="primary" onclick="ownerAddLesson()">إضافة الدرس</button><div id="ownerLessonList" class="result"></div><h3>رسالة الصفحة الرئيسية</h3><textarea id="ownerWelcome" rows="3" placeholder="رسالة تشجيعية تظهر في الرئيسية"></textarea><button class="primary" onclick="ownerSaveWelcome()">حفظ الرسالة</button>
 <hr><h3>📝 إدارة أسئلة الاختبار</h3><p class="muted">أضف أسئلة خاصة بالدروس التي أضفتها. ستدخل في الاختبار على هذا الجهاز.</p><label>عنوان الدرس المرتبط</label><input id="newQuestionLesson" placeholder="اسم الدرس المضاف"><label>السؤال</label><textarea id="newQuestionText" rows="2" placeholder="اكتب السؤال"></textarea><label>الخيار الأول</label><input id="newQuestionA" placeholder="الإجابة أ"><label>الخيار الثاني</label><input id="newQuestionB" placeholder="الإجابة ب"><label>الخيار الثالث</label><input id="newQuestionC" placeholder="الإجابة ج"><label>رقم الإجابة الصحيحة</label><select id="newQuestionCorrect"><option value="0">الخيار الأول</option><option value="1">الخيار الثاني</option><option value="2">الخيار الثالث</option></select><label>المستوى</label><select id="newQuestionLevel"><option>سهل</option><option>متوسط</option><option>صعب</option></select><label>شرح الإجابة</label><input id="newQuestionWhy" placeholder="تفسير مختصر للإجابة"><button class="primary" onclick="ownerAddQuestion()">إضافة السؤال للاختبار</button><div id="ownerQuestionList" class="result"></div><hr><h3>✍️ كتابة جمل وعبارات</h3><label>الجملة الجديدة</label><textarea id="newPhrase" rows="2" placeholder="اكتب عبارة تظهر في قسم العبارات"></textarea><button class="primary" onclick="ownerAddPhrase()">إضافة الجملة</button><div id="ownerPhraseList" class="result"></div><h3>🧰 أدوات إضافية</h3><button class="secondary" onclick="ownerExportSettings()">تصدير نسخة من إعداداتي</button> <button class="secondary" onclick="ownerLock()">قفل لوحة التحكم</button><div id="ownerSaveMsg" class="muted"></div></div>
-<p class="muted">تنبيه: هذا قفل بسيط داخل ملف HTML وليس حماية قوية؛ لا تخزّن فيه معلومات حساسة. التغييرات محفوظة في المتصفح الحالي فقط، وقد تضيع عند مسح بيانات المتصفح أو فتح الملف في متصفح آخر.</p></div></section>
+</div></section>
 <section id="complete" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">إكمال المعادلات</h2>
 <div class="card"><p class="muted">اختر تفاعلًا معروفًا أو اكتب المتفاعلات. الأداة تقترح نواتج من مكتبة أمثلة محددة؛ فقد تختلف النواتج حسب ظروف التفاعل.</p>
 <label>مثال تعليمي</label><select id="completionPreset" onchange="loadCompletionPreset()"><option value="water">تكوّن الماء</option><option value="co2">احتراق الكربون الكامل</option><option value="salt">تعادل حمض الهيدروكلوريك وهيدروكسيد الصوديوم</option><option value="rust">تكوّن أكسيد الحديد الثلاثي</option><option value="ammonia">تكوّن الأمونيا</option><option value="magnesium">احتراق المغنيسيوم</option><option value="decompose">تحلّل فوق أكسيد الهيدروجين</option><option value="carbonate">كربونات الكالسيوم مع حمض الهيدروكلوريك</option><option value="methane">احتراق الميثان الكامل</option><option value="ironacid">الحديد مع حمض الهيدروكلوريك المخفف</option><option value="ironchloride">تفاعل الحديد مع الكلور</option></select>
@@ -98,27 +196,112 @@ body.glow-on .owner-card{border-color:var(--mint)}
 <p class="muted"><strong>الجزيئات والمركبات:</strong> الجزيء مجموعة ذرات مرتبطة كيميائيًا، والمركب مادة تتكون من عنصرين أو أكثر متحدين بنسبة محددة، مثل الماء H₂O.</p></div>
 </div><div class="card"><h3>دروس أضافها المالك</h3><div id="ownerCustomLessons"></div></div></section>
 <section id="quiz" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">اختبر معلوماتك</h2><div class="card"><div id="quizArea"></div><button class="primary" onclick="nextQuestion()">السؤال التالي</button><div id="quizScore" class="result">النتيجة: 0</div></div></section>
-<section id="lab" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">المختبر الافتراضي</h2><div class="card"><b>محاكاة تكوّن الماء</b><p class="muted">اختر عدد الجزيئات الافتراضية لمشاهدة كيف تتناسب ذرات الهيدروجين والأكسجين في المعادلة.</p><label>عدد جزيئات الماء</label><input id="waterCount" type="range" min="1" max="5" value="1" oninput="renderLab()"><div id="labVisual" class="result"></div><p class="muted">المعادلة الموزونة: 2H₂ + O₂ → 2H₂O. هذه محاكاة توضيحية وليست تجربة فعلية.</p></div><div class="card"><b>محاكاة تغيّر الحالة</b><p class="muted">تغيّر الحالة الفيزيائية لا يغيّر نوع المادة: الجليد والماء السائل وبخار الماء كلها H₂O.</p><button class="secondary" onclick="cycleState()">غيّر حالة الماء</button><div id="stateVisual" class="result">🧊 ماء صلب (جليد)</div></div></section>
-<section id="calculator" class="hidden"><button class="back" onclick="show('home')">→ الرئيسية</button><h2 class="section-title">الحاسبة الكيميائية</h2><div class="card"><p class="muted">أدخل صيغة مركب مثل H2O أو CO2 أو NaCl أو Ca(OH)2.</p><label>الصيغة الكيميائية</label><input id="formula" value="H2O" dir="ltr"><button class="primary" onclick="molarMass()">احسب الكتلة المولية</button><div id="massResult" class="result">ستظهر النتيجة هنا.</div></div></section>
+
+
+
 </main>
-<nav class="bottom"><button onclick="show('home')"><span>⌂</span>الرئيسية</button><button onclick="show('periodic')"><span>⚛</span>العناصر</button><button onclick="show('equations')"><span>⚗</span>المعادلات</button><button onclick="show('quiz')"><span>✓</span>اختبر نفسك</button></nav>
+<nav class="bottom"><button onclick="show('home')"><span>⌂</span>الرئيسية</button><button onclick="show('periodic')"><span>⚛</span>العناصر</button><button onclick="show('equations')"><span>⚗</span>المعادلات</button><button onclick="show('quiz')"><span>✓</span>اختبر نفسك</button><button onclick="show('owner')"><span>⚙</span>المالك</button></nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const sections=['home','periodic','compounds','productquiz','equations','lessons','quiz','lab','calculator','complete','owner'];
-function show(id){sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));window.scrollTo(0,0);if(id==='periodic')renderElements();if(id==='quiz')nextQuestion();if(id==='lab')renderLab();if(id==='complete'&&document.getElementById('completionInput')&&!document.getElementById('completionInput').value)loadCompletionPreset();if(id==='lessons')ownerRenderLessonContent();}
-const OWNER_PASSWORD='othman.11.alsaleh';
+const sections=['home','periodic','productquiz','equations','lessons','quiz','complete','owner','ownerDashboard'];
+function show(id){sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));window.scrollTo(0,0);if(id==='periodic')renderElements();if(id==='quiz')nextQuestion();if(id==='complete'&&document.getElementById('completionInput')&&!document.getElementById('completionInput').value)loadCompletionPreset();if(id==='lessons')ownerRenderLessonContent();}
+// Supabase project configuration. Publishable keys are intended for browser use.
+// Never place a service_role/secret key in this file.
+const SUPABASE_URL='https://ktcrvsowelipxwgnqavl.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_vkbSpJqQ-SsJuNIcBPy5wA_lMEQHJL4';
+const supabaseClient = window.supabase?.createClient
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
+  : null;
+let currentSupabaseUser = null;
+let currentIsAdmin = false;
+let sharedTablesReady = false;
+
+async function testSupabaseConnection(){
+ const box=document.getElementById('supabaseStatus');
+ box.textContent='جارٍ اختبار الاتصال...';
+ try{
+  if(!supabaseClient) throw new Error('تعذّر تحميل مكتبة Supabase. تحقق من الإنترنت.');
+  const {data,error}=await supabaseClient.from('app_settings').select('id,app_name,ai_enabled').limit(1);
+  if(error){
+    box.textContent='تم إعداد الاتصال بالمشروع، لكن قراءة جدول app_settings لم تنجح: '+error.message+' — تأكد من تنفيذ SQL المرفق وسياسات RLS.';
+  } else {
+    box.textContent='نجح الاتصال بجدول الإعدادات في Supabase.';
+  }
+ }catch(e){box.textContent='تعذّر الاتصال: '+(e.message||'تحقق من الإنترنت وإعدادات المشروع.');}
+}
+
 const OWNER_LESSONS_KEY='oc_owner_lessons_v1', OWNER_WELCOME_KEY='oc_owner_welcome_v1', OWNER_THEME_KEY='oc_owner_theme_v1', OWNER_PHRASES_KEY='oc_owner_phrases_v1';
-function ownerUnlock(){const pin=document.getElementById('ownerPin').value;const msg=document.getElementById('ownerMsg');if(pin!==OWNER_PASSWORD){msg.textContent='كلمة المرور غير صحيحة.';return}document.getElementById('ownerTools').classList.remove('hidden');document.getElementById('ownerLogin').classList.add('hidden');document.getElementById('ownerWelcome').value=localStorage.getItem(OWNER_WELCOME_KEY)||'كل فكرة تفهمها اليوم تقرّبك من حلمك غدًا؛ واصل الدراسة، فالعلم قوة، وبالفضول والصبر تستطيع اكتشاف أشياء عظيمة!';ownerLoadTheme();ownerRenderLessons();ownerRenderPhrases();ownerRenderQuestions();}
-function ownerLock(){document.getElementById('ownerTools').classList.add('hidden');document.getElementById('ownerLogin').classList.remove('hidden');document.getElementById('ownerPin').value='';}
+async function ownerUnlock(){
+ const email=(document.getElementById('ownerEmail')?.value||'').trim();
+ const password=(document.getElementById('ownerPin')?.value||'');
+ const msg=document.getElementById('ownerMsg');
+ if(!email || !password){msg.textContent='أدخل البريد الإلكتروني وكلمة مرور حساب Supabase.';return;}
+ if(!supabaseClient){msg.textContent='تعذّر تحميل مكتبة الاتصال. تحقق من الإنترنت.';return;}
+ msg.textContent='جارٍ تسجيل الدخول والتحقق من صلاحية المالك...';
+ const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+ if(error){msg.textContent='تعذّر تسجيل الدخول: '+error.message;return;}
+ currentSupabaseUser=data.user;
+ const {data:isAdmin,error:adminError}=await supabaseClient.rpc('is_app_admin');
+ if(adminError || isAdmin!==true){
+   await supabaseClient.auth.signOut();
+   currentSupabaseUser=null; currentIsAdmin=false;
+   msg.textContent='تم تسجيل الدخول، لكن هذا الحساب ليس مالكًا معتمدًا. تحقق من أن UUID المسجل في app_admins يخص هذا الحساب.';
+   return;
+ }
+ currentIsAdmin=true;
+ document.getElementById('ownerTools').classList.remove('hidden');
+ document.getElementById('ownerLogin').classList.add('hidden');
+ document.getElementById('ownerWelcome').value=localStorage.getItem(OWNER_WELCOME_KEY)||'كل فكرة تفهمها اليوم تقرّبك من حلمك غدًا؛ واصل الدراسة، فالعلم قوة، وبالفضول والصبر تستطيع اكتشاف أشياء عظيمة!';
+ ownerLoadTheme(); ownerRenderLessons(); ownerRenderPhrases(); ownerRenderQuestions();
+ await ownerLoadSharedSettings();
+ await ownerLoadSharedLessons();
+ await ownerLoadSharedQuestions();
+ show('ownerDashboard');
+}
+async function ownerLoadSharedSettings(){
+ if(!currentIsAdmin)return;
+ const {data,error}=await supabaseClient.from('app_settings').select('key,value');
+ if(error){document.getElementById('ownerSaveMsg').textContent='تعذّر تحميل الإعدادات المشتركة: '+error.message;return;}
+ sharedTablesReady=true;
+ for(const row of (data||[])){
+   if(row.key==='welcome' && typeof row.value==='string'){
+     localStorage.setItem(OWNER_WELCOME_KEY,row.value);
+     const input=document.getElementById('ownerWelcome'); if(input)input.value=row.value;
+     const card=document.getElementById('homeWelcomeText'); if(card)card.textContent=row.value;
+   }
+   if(row.key==='theme' && row.value && typeof row.value==='object'){
+     localStorage.setItem(OWNER_THEME_KEY,JSON.stringify(row.value));
+   }
+ }
+ ownerLoadTheme();
+}
+async function ownerLoadSharedLessons(){
+ if(!currentIsAdmin)return;
+ const {data,error}=await supabaseClient.from('app_content').select('id,title,body').order('created_at',{ascending:true});
+ if(error){document.getElementById('ownerSaveMsg').textContent='تعذّر تحميل الدروس المشتركة: '+error.message;return;}
+ const rows=(data||[]).map(x=>({id:x.id,title:x.title||'',body:x.body||''}));
+ localStorage.setItem(OWNER_LESSONS_KEY,JSON.stringify(rows));
+ ownerRenderLessons(); ownerRenderLessonContent();
+}
+async function ownerLoadSharedQuestions(){
+ if(!currentIsAdmin)return;
+ const {data,error}=await supabaseClient.from('app_questions').select('id,lesson,question,answers,correct_index,level,explanation').order('created_at',{ascending:true});
+ if(error){document.getElementById('ownerSaveMsg').textContent='تعذّر تحميل الأسئلة المشتركة: '+error.message;return;}
+ const rows=(data||[]).map(x=>({id:x.id,lesson:x.lesson||'',q:x.question||'',a:Array.isArray(x.answers)?x.answers:[],c:Number(x.correct_index||0),level:x.level||'متوسط',why:x.explanation||''}));
+ localStorage.setItem(OWNER_QUESTIONS_KEY,JSON.stringify(rows));
+ ownerRenderQuestions(); questions=getQuizQuestions();
+}
+async function ownerLock(){document.getElementById('ownerTools').classList.add('hidden');document.getElementById('ownerLogin').classList.remove('hidden');document.getElementById('ownerPin').value='';if(supabaseClient)await supabaseClient.auth.signOut();currentSupabaseUser=null;currentIsAdmin=false;show('owner');}
 function ownerGetLessons(){try{return JSON.parse(localStorage.getItem(OWNER_LESSONS_KEY)||'[]')}catch(e){return []}}
-function ownerAddLesson(){const title=document.getElementById('newLessonTitle').value.trim(),body=document.getElementById('newLessonBody').value.trim();if(!title||!body){alert('اكتب عنوان الدرس وشرحه أولًا.');return}const a=ownerGetLessons();a.push({id:Date.now(),title,body});localStorage.setItem(OWNER_LESSONS_KEY,JSON.stringify(a));document.getElementById('newLessonTitle').value='';document.getElementById('newLessonBody').value='';ownerRenderLessons();ownerRenderLessonContent();}
-function ownerDeleteLesson(id){if(!confirm('هل تريد حذف هذا الدرس الذي أضفته؟'))return;localStorage.setItem(OWNER_LESSONS_KEY,JSON.stringify(ownerGetLessons().filter(x=>x.id!==id)));ownerRenderLessons();ownerRenderLessonContent();}
+async function ownerAddLesson(){const title=document.getElementById('newLessonTitle').value.trim(),body=document.getElementById('newLessonBody').value.trim();if(!title||!body){alert('اكتب عنوان الدرس وشرحه أولًا.');return}if(!currentIsAdmin){alert('سجّل الدخول بحساب المالك أولًا.');return}const {error}=await supabaseClient.from('app_content').insert({title,body});if(error){alert('لم يُحفظ الدرس في قاعدة البيانات: '+error.message);return}document.getElementById('newLessonTitle').value='';document.getElementById('newLessonBody').value='';await ownerLoadSharedLessons();document.getElementById('ownerSaveMsg').textContent='حُفظ الدرس في قاعدة البيانات المشتركة.';}
+async function ownerDeleteLesson(id){if(!confirm('هل تريد حذف هذا الدرس من قاعدة البيانات المشتركة؟'))return;if(!currentIsAdmin)return alert('سجّل الدخول بحساب المالك أولًا.');const {error}=await supabaseClient.from('app_content').delete().eq('id',id);if(error)return alert('تعذّر الحذف: '+error.message);await ownerLoadSharedLessons();}
 function ownerRenderLessons(){const a=ownerGetLessons();document.getElementById('ownerLessonList').innerHTML=a.length?a.map(x=>`<div class="lesson"><b>${escapeOwnerHtml(x.title)}</b><button class="secondary" style="float:left" onclick="ownerDeleteLesson(${Number(x.id)})">حذف</button><p class="muted">${escapeOwnerHtml(x.body).replace(/\n/g,'<br>')}</p></div>`).join(''):'لم تضف دروسًا بعد.'}
 function escapeOwnerHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function ownerRenderLessonContent(){const host=document.getElementById('ownerCustomLessons');if(!host)return;const a=ownerGetLessons();host.innerHTML=a.map(x=>`<div class="lesson"><b>${escapeOwnerHtml(x.title)}</b><p class="muted">${escapeOwnerHtml(x.body).replace(/\n/g,'<br>')}</p></div>`).join('')}
-function ownerSaveWelcome(){const v=document.getElementById('ownerWelcome').value.trim();if(!v){alert('اكتب الرسالة أولًا.');return}localStorage.setItem(OWNER_WELCOME_KEY,v);const card=document.getElementById('homeWelcomeText');if(card)card.textContent=v;document.getElementById('ownerSaveMsg').textContent='تم حفظ الرسالة في هذا المتصفح.'}
+async function ownerSaveWelcome(){const v=document.getElementById('ownerWelcome').value.trim();if(!v){alert('اكتب الرسالة أولًا.');return}if(!currentIsAdmin)return alert('سجّل الدخول بحساب المالك أولًا.');const {error}=await supabaseClient.from('app_settings').upsert({key:'welcome',value:v},{onConflict:'key'});if(error){document.getElementById('ownerSaveMsg').textContent='تعذّر حفظ الرسالة: '+error.message;return}localStorage.setItem(OWNER_WELCOME_KEY,v);const card=document.getElementById('homeWelcomeText');if(card)card.textContent=v;document.getElementById('ownerSaveMsg').textContent='حُفظت الرسالة في قاعدة البيانات المشتركة.'}
 function ownerGetTheme(){try{return JSON.parse(localStorage.getItem(OWNER_THEME_KEY)||'{}')}catch(e){return {}}}
 function ownerLoadTheme(){const t=ownerGetTheme();for(const [id,key,def] of [['themeMint','mint','#66ffe0'],['themeBg','bg','#080d20'],['themePanel','panel','#121b38'],['themeText','text','#f8f8ff']])document.getElementById(id).value=t[key]||def;ownerApplyTheme(false);document.getElementById('glowToggle').checked=document.body.classList.contains('glow-on');}
-function ownerApplyTheme(save){const t={mint:document.getElementById('themeMint').value,bg:document.getElementById('themeBg').value,panel:document.getElementById('themePanel').value,text:document.getElementById('themeText').value};const root=document.documentElement;root.style.setProperty('--mint',t.mint);root.style.setProperty('--bg',t.bg);root.style.setProperty('--panel',t.panel);root.style.setProperty('--text',t.text);document.body.style.backgroundColor=t.bg;document.body.style.color=t.text;document.querySelectorAll('.card').forEach(x=>x.style.backgroundColor=t.panel);ownerToggleGlow();if(save){localStorage.setItem(OWNER_THEME_KEY,JSON.stringify(t));document.getElementById('ownerSaveMsg').textContent='حُفظت الألوان في هذا المتصفح فقط.'}}
+function ownerApplyTheme(save){const t={mint:document.getElementById('themeMint').value,bg:document.getElementById('themeBg').value,panel:document.getElementById('themePanel').value,text:document.getElementById('themeText').value};const root=document.documentElement;root.style.setProperty('--mint',t.mint);root.style.setProperty('--bg',t.bg);root.style.setProperty('--panel',t.panel);root.style.setProperty('--text',t.text);document.body.style.backgroundColor=t.bg;document.body.style.color=t.text;document.querySelectorAll('.card').forEach(x=>x.style.backgroundColor=t.panel);ownerToggleGlow();if(save){localStorage.setItem(OWNER_THEME_KEY,JSON.stringify(t));if(currentIsAdmin){supabaseClient.from('app_settings').upsert({key:'theme',value:t},{onConflict:'key'}).then(({error})=>{document.getElementById('ownerSaveMsg').textContent=error?'تعذّر حفظ الألوان المشتركة: '+error.message:'حُفظت الألوان في قاعدة البيانات المشتركة.'})}else{document.getElementById('ownerSaveMsg').textContent='سجّل الدخول كمالك لحفظ الألوان لجميع المستخدمين.'}}}
 function ownerToggleGlow(){document.body.classList.toggle('glow-on',document.getElementById('glowToggle').checked);localStorage.setItem('oc_glow_on',document.getElementById('glowToggle').checked?'1':'0')}
 function ownerResetTheme(){localStorage.removeItem(OWNER_THEME_KEY);['themeMint','themeBg','themePanel','themeText'].forEach((id,i)=>document.getElementById(id).value=['#66ffe0','#080d20','#121b38','#f8f8ff'][i]);ownerApplyTheme(true)}
 function ownerGetPhrases(){try{return JSON.parse(localStorage.getItem(OWNER_PHRASES_KEY)||'[]')}catch(e){return []}}
@@ -128,6 +311,7 @@ function ownerRenderPhrases(){const a=ownerGetPhrases(),admin=document.getElemen
 function ownerExportSettings(){const data={theme:ownerGetTheme(),welcome:localStorage.getItem(OWNER_WELCOME_KEY)||'',lessons:ownerGetLessons(),phrases:ownerGetPhrases(),glow:localStorage.getItem('oc_glow_on')||'1'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='othman-chemistry-settings.json';a.click();URL.revokeObjectURL(url)}
 (function(){if(localStorage.getItem('oc_glow_on')!=='0')document.body.classList.add('glow-on');const t=ownerGetTheme();if(t.mint){document.documentElement.style.setProperty('--mint',t.mint);document.documentElement.style.setProperty('--bg',t.bg||'#080d20');document.documentElement.style.setProperty('--panel',t.panel||'#121b38');document.documentElement.style.setProperty('--text',t.text||'#f8f8ff')}const w=localStorage.getItem(OWNER_WELCOME_KEY);if(w)document.getElementById('homeWelcomeText').textContent=w;ownerRenderPhrases()})();
 
+const AI_API_ENDPOINT = ''; // ضع رابط واجهة الذكاء الاصطناعي الآمنة هنا بعد نشرها على الخادم.
 const els=[
 [1,'H','الهيدروجين',1.008,'لا فلز'],[2,'He','الهيليوم',4.0026,'غاز نبيل'],[3,'Li','الليثيوم',6.94,'فلز قلوي'],[4,'Be','البيريليوم',9.0122,'فلز قلوي ترابي'],[5,'B','البورون',10.81,'شبه فلز'],[6,'C','الكربون',12.011,'لا فلز'],[7,'N','النيتروجين',14.007,'لا فلز'],[8,'O','الأكسجين',15.999,'لا فلز'],[9,'F','الفلور',18.998,'هالوجين'],[10,'Ne','النيون',20.180,'غاز نبيل'],
 [11,'Na','الصوديوم',22.990,'فلز قلوي'],[12,'Mg','المغنيسيوم',24.305,'فلز قلوي ترابي'],[13,'Al','الألومنيوم',26.982,'فلز'],[14,'Si','السيليكون',28.085,'شبه فلز'],[15,'P','الفوسفور',30.974,'لا فلز'],[16,'S','الكبريت',32.06,'لا فلز'],[17,'Cl','الكلور',35.45,'هالوجين'],[18,'Ar','الأرجون',39.948,'غاز نبيل'],
@@ -183,14 +367,50 @@ out.innerHTML='<b>المعادلة الموزونة</b><div dir="ltr" style="fon
  });
 });
 const baseQuestions=[{"level": "سهل", "q": "ما الرمز الكيميائي للأكسجين؟", "a": ["O", "Ox", "Og"], "c": 0, "why": "رمز الأكسجين O."}, {"level": "سهل", "q": "كم ذرة هيدروجين في H₂O؟", "a": ["1", "2", "3"], "c": 1, "why": "الرقم 2 يدل على ذرتين هيدروجين."}, {"level": "سهل", "q": "ما صيغة ثاني أكسيد الكربون؟", "a": ["CO", "CO₂", "C₂O"], "c": 1, "why": "يتكون من ذرة كربون وذرتي أكسجين."}, {"level": "سهل", "q": "ماذا يمثل العدد الذري؟", "a": ["عدد البروتونات", "عدد الجزيئات", "عدد الروابط"], "c": 0, "why": "العدد الذري يساوي عدد البروتونات."}, {"level": "سهل", "q": "ما حالة الماء عند التجمد المعتاد؟", "a": ["صلبة", "غازية", "بلازما"], "c": 0, "why": "يتجمد الماء إلى جليد."}, {"level": "سهل", "q": "أي مما يلي عنصر؟", "a": ["الحديد Fe", "الماء H₂O", "ملح الطعام NaCl"], "c": 0, "why": "الحديد عنصر كيميائي."}, {"level": "سهل", "q": "ما رمز الصوديوم؟", "a": ["S", "Na", "So"], "c": 1, "why": "رمز الصوديوم Na."}, {"level": "سهل", "q": "ما صيغة الأكسجين الجزيئي الشائعة؟", "a": ["O", "O₂", "O₃ فقط"], "c": 1, "why": "الأكسجين الغازي المعتاد يتكون غالبًا من جزيئات O₂."}, {"level": "سهل", "q": "ما نوع التغير عند انصهار الجليد؟", "a": ["فيزيائي", "كيميائي", "نووي"], "c": 0, "why": "تتغير الحالة ولا تتكون مادة جديدة."}, {"level": "سهل", "q": "أي أداة تقيس حجم سائل بدقة نسبية في المختبر؟", "a": ["مخبار مدرج", "ميزان حرارة فقط", "ملقط"], "c": 0, "why": "المخبار المدرج يقيس حجم السوائل."}, {"level": "سهل", "q": "ما الرمز الكيميائي للهيدروجين؟", "a": ["H", "Hy", "Hg"], "c": 0, "why": "رمز الهيدروجين H."}, {"level": "سهل", "q": "ما صيغة ملح الطعام؟", "a": ["NaCl", "HCl", "NaOH"], "c": 0, "why": "كلوريد الصوديوم صيغته NaCl."}, {"level": "سهل", "q": "ما الجسيم ذو الشحنة السالبة؟", "a": ["الإلكترون", "البروتون", "النيوترون"], "c": 0, "why": "الإلكترون سالب الشحنة."}, {"level": "سهل", "q": "أين توجد البروتونات؟", "a": ["في النواة", "في السحابة الإلكترونية", "خارج الذرة دائمًا"], "c": 0, "why": "توجد البروتونات في نواة الذرة."}, {"level": "سهل", "q": "ما الرقم الهيدروجيني للمحلول المتعادل تقريبًا عند 25°C؟", "a": ["7", "1", "14"], "c": 0, "why": "المتعادل يقارب pH 7 عند 25°C."}, {"level": "سهل", "q": "ما صيغة الأمونيا؟", "a": ["NH₃", "NO₂", "N₂O"], "c": 0, "why": "الأمونيا NH₃."}, {"level": "سهل", "q": "أي مادة من الآتي حمض شائع؟", "a": ["HCl", "NaOH", "NaCl"], "c": 0, "why": "حمض الهيدروكلوريك HCl حمض."}, {"level": "سهل", "q": "أي مادة قاعدة شائعة؟", "a": ["NaOH", "HCl", "CO₂"], "c": 0, "why": "هيدروكسيد الصوديوم قاعدة."}, {"level": "سهل", "q": "ما اسم تحول السائل إلى غاز من سطحه؟", "a": ["تبخر", "تكاثف", "تجمد"], "c": 0, "why": "التبخر انتقال من السائل إلى الغاز."}, {"level": "سهل", "q": "ما الذي تحفظه المعادلة الكيميائية الموزونة؟", "a": ["عدد ذرات كل عنصر", "لون المواد دائمًا", "حجم الوعاء"], "c": 0, "why": "الموازنة تحقق حفظ الذرات."}, {"level": "سهل", "q": "ما رمز الكالسيوم؟", "a": ["Ca", "C", "Cl"], "c": 0, "why": "رمز الكالسيوم Ca."}, {"level": "سهل", "q": "ما صيغة الميثان؟", "a": ["CH₄", "C₂H₆", "CO₂"], "c": 0, "why": "الميثان CH₄."}, {"level": "سهل", "q": "أي مما يلي مخلوط؟", "a": ["الهواء", "ذهب نقي", "أكسجين نقي"], "c": 0, "why": "الهواء خليط من غازات."}, {"level": "سهل", "q": "ما اسم الجسيم المتعادل كهربائيًا في النواة؟", "a": ["النيوترون", "الإلكترون", "البروتون"], "c": 0, "why": "النيوترون متعادل."}, {"level": "سهل", "q": "ما رمز الحديد؟", "a": ["Fe", "Ir", "F"], "c": 0, "why": "رمز الحديد Fe."}, {"level": "سهل", "q": "ما الصيغة الكيميائية للماء؟", "a": ["H₂O", "HO₂", "H₂O₂"], "c": 0, "why": "الماء H₂O."}, {"level": "سهل", "q": "ماذا تسمى المواد الموجودة قبل التفاعل؟", "a": ["متفاعلات", "نواتج", "مذيبات دائمًا"], "c": 0, "why": "المتفاعلات تبدأ التفاعل."}, {"level": "سهل", "q": "ماذا تسمى المواد المتكونة بعد التفاعل؟", "a": ["نواتج", "متفاعلات", "عوامل فقط"], "c": 0, "why": "النواتج تتكون من التفاعل."}, {"level": "سهل", "q": "ما وحدة كمية المادة في النظام الدولي؟", "a": ["المول", "الغرام", "المتر"], "c": 0, "why": "وحدة كمية المادة هي المول."}, {"level": "سهل", "q": "ما الرمز الكيميائي للكربون؟", "a": ["C", "Ca", "Co"], "c": 0, "why": "رمز الكربون C."}, {"level": "سهل", "q": "ما الذي يحدث عادة عند تكاثف بخار الماء؟", "a": ["يتحول إلى سائل", "يتحول إلى صلب مباشرة دائمًا", "يتحول إلى عنصر آخر"], "c": 0, "why": "التكاثف يحول الغاز إلى سائل."}, {"level": "سهل", "q": "أي صيغة تمثل الأوزون؟", "a": ["O₃", "O₂", "CO₃"], "c": 0, "why": "الأوزون يتكون من ثلاث ذرات أكسجين."}, {"level": "سهل", "q": "ما اسم NaCl؟", "a": ["كلوريد الصوديوم", "هيدروكسيد الصوديوم", "حمض الهيدروكلوريك"], "c": 0, "why": "NaCl هو كلوريد الصوديوم."}, {"level": "سهل", "q": "ما العامل الذي يسرّع التبخر غالبًا؟", "a": ["ارتفاع درجة الحرارة", "انخفاض مساحة السطح إلى الصفر", "إغلاق الوعاء بإحكام"], "c": 0, "why": "ارتفاع الحرارة يزيد سرعة التبخر غالبًا."}, {"level": "متوسط", "q": "وازن: H₂ + O₂ → H₂O. ما المعاملات الصحيحة؟", "a": ["2, 1, 2", "1, 1, 1", "1, 2, 1"], "c": 0, "why": "المعادلة الموزونة 2H₂ + O₂ → 2H₂O."}, {"level": "متوسط", "q": "كم مولًا من الذرات يوجد في 1 مول من جزيئات H₂O؟", "a": ["3 مول ذرات", "1 مول ذرات", "2 مول ذرات"], "c": 0, "why": "كل جزيء ماء يحوي 3 ذرات؛ لذلك 1 مول جزيئات يحوي 3 مول ذرات."}, {"level": "متوسط", "q": "ما الكتلة المولية التقريبية للماء؟", "a": ["18 g/mol", "16 g/mol", "20 g/mol"], "c": 0, "why": "2×1 + 16 = 18 g/mol تقريبًا."}, {"level": "متوسط", "q": "في تفاعل التعادل HCl + NaOH، ما الناتجان؟", "a": ["NaCl و H₂O", "Na و Cl₂", "H₂ و O₂"], "c": 0, "why": "ينتج ملح وماء."}, {"level": "متوسط", "q": "ما نوع التفاعل: 2Mg + O₂ → 2MgO؟", "a": ["اتحاد", "تحلل", "إحلال مزدوج"], "c": 0, "why": "تتحد مادتان لتكوين مركب."}, {"level": "متوسط", "q": "ما نوع التفاعل: CaCO₃ → CaO + CO₂؟", "a": ["تحلل", "اتحاد", "تعادل"], "c": 0, "why": "مركب واحد يتحلل إلى مواد أبسط."}, {"level": "متوسط", "q": "إذا كان pH = 3، فالمحلول؟", "a": ["حمضي", "متعادل", "قاعدي"], "c": 0, "why": "القيم الأقل من 7 حمضية عادة."}, {"level": "متوسط", "q": "إذا كان pH = 11، فالمحلول؟", "a": ["قاعدي", "حمضي", "متعادل"], "c": 0, "why": "القيم الأكبر من 7 قاعدية عادة."}, {"level": "متوسط", "q": "ما عدد البروتونات في ذرة كربون عددها الذري 6؟", "a": ["6", "12", "3"], "c": 0, "why": "العدد الذري يساوي عدد البروتونات."}, {"level": "متوسط", "q": "نظير للكربون-14 يملك كم نيوترونًا؟", "a": ["8", "6", "14"], "c": 0, "why": "عدد النيوترونات = 14 - 6 = 8."}, {"level": "متوسط", "q": "ما صيغة أكسيد الحديد الثلاثي؟", "a": ["Fe₂O₃", "FeO", "Fe₃O₂"], "c": 0, "why": "أكسيد الحديد الثلاثي Fe₂O₃."}, {"level": "متوسط", "q": "ما المعامل أمام O₂ في: 2H₂ + O₂ → 2H₂O؟", "a": ["1", "2", "3"], "c": 0, "why": "المعامل 1 مفهوم ضمنًا."}, {"level": "متوسط", "q": "ما عدد مولات CO₂ الناتجة نظريًا من احتراق 1 مول C وفق C + O₂ → CO₂؟", "a": ["1 مول", "2 مول", "0.5 مول"], "c": 0, "why": "النسبة المولية C:CO₂ تساوي 1:1."}, {"level": "متوسط", "q": "أي طريقة تفصل الرمل عن الماء؟", "a": ["الترشيح", "التقطير التجزيئي", "الكروماتوغرافيا فقط"], "c": 0, "why": "الترشيح يفصل الصلب غير الذائب عن السائل."}, {"level": "متوسط", "q": "أي خاصية تعد كيميائية؟", "a": ["قابلية الحديد للصدأ", "درجة الانصهار فقط", "الكثافة فقط"], "c": 0, "why": "الصدأ يتضمن تكوّن مواد جديدة."}, {"level": "متوسط", "q": "ما نوع الرابطة في NaCl غالبًا؟", "a": ["أيونية", "تساهمية غير قطبية", "فلزية"], "c": 0, "why": "ينشأ مركب أيوني من أيونات الصوديوم والكلوريد."}, {"level": "متوسط", "q": "ما نوع الرابطة بين ذرتي الأكسجين في O₂؟", "a": ["تساهمية", "أيونية", "فلزية"], "c": 0, "why": "تتشارك الذرتان بالإلكترونات."}, {"level": "متوسط", "q": "كم ذرة أكسجين في 3CO₂؟", "a": ["6", "2", "3"], "c": 0, "why": "كل جزيء يحوي ذرتين، و3 جزيئات تحوي 6 ذرات."}, {"level": "متوسط", "q": "ما الكتلة المولية التقريبية لـ CO₂؟", "a": ["44 g/mol", "28 g/mol", "32 g/mol"], "c": 0, "why": "12 + 2×16 = 44 g/mol."}, {"level": "متوسط", "q": "عند ثبات الضغط، ماذا يحدث لحجم الغاز غالبًا إذا ارتفعت حرارته المطلقة؟", "a": ["يزداد", "ينقص دائمًا", "يبقى ثابتًا مهما حدث"], "c": 0, "why": "قانون شارل: الحجم يتناسب طرديًا مع الحرارة المطلقة."}, {"level": "متوسط", "q": "أي جسيم يحدد هوية العنصر؟", "a": ["عدد البروتونات", "عدد النيوترونات فقط", "عدد مستويات الطاقة فقط"], "c": 0, "why": "عدد البروتونات هو العدد الذري."}, {"level": "متوسط", "q": "في المحلول الملحي، ما المذاب؟", "a": ["NaCl", "الماء فقط", "الوعاء"], "c": 0, "why": "الملح هو المادة التي تذوب في الماء."}, {"level": "متوسط", "q": "ما وظيفة العامل الحفاز؟", "a": ["يزيد سرعة التفاعل دون أن يُستهلك كليًا", "يزيد كتلة النواتج من العدم", "يوقف جميع التصادمات"], "c": 0, "why": "يوفر مسارًا أقل طاقة تنشيطية عادة."}, {"level": "متوسط", "q": "ما المقصود بطاقة التنشيط؟", "a": ["الحد الأدنى من الطاقة لبدء التفاعل", "الطاقة الكلية للكون", "كتلة المتفاعل"], "c": 0, "why": "هي حاجز الطاقة اللازم لحدوث التفاعل."}, {"level": "متوسط", "q": "ما الصيغة الصحيحة لهيدروكسيد الصوديوم؟", "a": ["NaOH", "Na₂O", "NaH"], "c": 0, "why": "هيدروكسيد الصوديوم NaOH."}, {"level": "متوسط", "q": "ما نوع التغير عند احتراق الورق؟", "a": ["كيميائي", "فيزيائي فقط", "تغير في الشكل فقط"], "c": 0, "why": "الاحتراق ينتج مواد جديدة."}, {"level": "متوسط", "q": "إذا ذاب 10 g ملح في 100 g ماء، فما كتلة المحلول؟", "a": ["110 g", "100 g", "10 g"], "c": 0, "why": "بافتراض عدم فقد مادة: مجموع الكتلتين 110 g."}, {"level": "متوسط", "q": "أي مما يلي خليط متجانس؟", "a": ["محلول السكر في الماء", "رمل مع حصى", "زيت وماء منفصلان"], "c": 0, "why": "المحلول متجانس إذا توزعت مكوناته بانتظام."}, {"level": "متوسط", "q": "ما الأيون الناتج عندما تفقد ذرة الصوديوم إلكترونًا؟", "a": ["Na⁺", "Na⁻", "Na²⁻"], "c": 0, "why": "فقد إلكترون يعطي شحنة موجبة واحدة."}, {"level": "متوسط", "q": "ما عدد الإلكترونات في أيون Mg²⁺ لذرة عددها الذري 12؟", "a": ["10", "12", "14"], "c": 0, "why": "يفقد إلكترونين: 12 - 2 = 10."}, {"level": "متوسط", "q": "في المعادلة 2Na + Cl₂ → 2NaCl، كم مول NaCl ينتج من 2 مول Na نظريًا؟", "a": ["2 مول", "1 مول", "4 مول"], "c": 0, "why": "النسبة بين Na وNaCl هي 1:1."}, {"level": "متوسط", "q": "أي غاز يعكر ماء الجير؟", "a": ["CO₂", "O₂", "H₂"], "c": 0, "why": "يتكون راسب كربونات الكالسيوم مع ثاني أكسيد الكربون."}, {"level": "صعب", "q": "عند تفاعل 4 مول H₂ مع 1 مول O₂ وفق 2H₂ + O₂ → 2H₂O، ما المتفاعل المحدد؟", "a": ["O₂", "H₂", "لا يوجد متفاعل محدد"], "c": 0, "why": "1 مول O₂ يحتاج 2 مول H₂؛ يتبقى هيدروجين ويكون الأكسجين محددًا."}, {"level": "صعب", "q": "كم مول ماء ينتج نظريًا من 3 مول O₂ مع فائض H₂؟", "a": ["6 مول", "3 مول", "1.5 مول"], "c": 0, "why": "كل 1 مول O₂ ينتج 2 مول H₂O."}, {"level": "صعب", "q": "إذا كان المردود النظري 20 g والفعلي 15 g، فما نسبة المردود؟", "a": ["75%", "25%", "133%"], "c": 0, "why": "15 ÷ 20 × 100 = 75%."}, {"level": "صعب", "q": "كم مولًا في 9 g ماء (الكتلة المولية 18 g/mol)؟", "a": ["0.5 mol", "2 mol", "9 mol"], "c": 0, "why": "n = m/M = 9/18 = 0.5 mol."}, {"level": "صعب", "q": "ما كتلة 0.5 مول CO₂ إذا كانت كتلته المولية 44 g/mol؟", "a": ["22 g", "44 g", "88 g"], "c": 0, "why": "الكتلة = عدد المولات × الكتلة المولية = 22 g."}, {"level": "صعب", "q": "ما عدد الجزيئات في 2 مول مادة؟", "a": ["نحو 1.204×10²⁴", "نحو 6.022×10²³", "نحو 2"], "c": 0, "why": "2 مول × عدد أفوجادرو."}, {"level": "صعب", "q": "ما عدد تأكسد الأكسجين المعتاد في معظم الأكاسيد؟", "a": ["−2", "+2", "0 دائمًا"], "c": 0, "why": "الأكسجين غالبًا −2 في الأكاسيد."}, {"level": "صعب", "q": "ما عدد تأكسد الكبريت في H₂SO₄؟", "a": ["+6", "+4", "−2"], "c": 0, "why": "2(+1)+S+4(−2)=0، إذن S=+6."}, {"level": "صعب", "q": "أي معادلة تمثل احتراقًا كاملًا للميثان؟", "a": ["CH₄ + 2O₂ → CO₂ + 2H₂O", "CH₄ + O₂ → C + H₂O فقط", "CH₄ → C + H₂"], "c": 0, "why": "الاحتراق الكامل ينتج CO₂ والماء."}, {"level": "صعب", "q": "ما حجم 2 مول غاز مثالي عند STP وفق الحجم المولي 22.4 L/mol؟", "a": ["44.8 L", "22.4 L", "11.2 L"], "c": 0, "why": "2 × 22.4 = 44.8 L."}, {"level": "صعب", "q": "إذا ضوعف تركيز متفاعل وكان التفاعل من الرتبة الأولى بالنسبة له، فمعدل التفاعل؟", "a": ["يتضاعف", "يتربع", "لا يتغير"], "c": 0, "why": "في الرتبة الأولى يتناسب المعدل طرديًا مع التركيز."}, {"level": "صعب", "q": "ما قيمة pH تقريبًا إذا كان [H⁺] = 10⁻³ mol/L؟", "a": ["3", "11", "7"], "c": 0, "why": "pH = −log[H⁺] = 3."}, {"level": "صعب", "q": "عند تخفيف محلول حمضي بالماء، ماذا يحدث لتركيز +H عادة؟", "a": ["ينخفض", "يرتفع دائمًا", "لا يتغير"], "c": 0, "why": "التخفيف يقلل تركيز الأيونات لكل وحدة حجم."}, {"level": "صعب", "q": "أي عامل يرفع سرعة التفاعل عادة عبر زيادة التصادمات الفعالة؟", "a": ["زيادة درجة الحرارة", "تقليل التركيز دائمًا", "خفض مساحة السطح للصلب"], "c": 0, "why": "ارتفاع الحرارة يزيد طاقة وسرعة الجسيمات."}, {"level": "صعب", "q": "ما الصيغة التجريبية لمركب صيغته الجزيئية C₆H₁₂O₆؟", "a": ["CH₂O", "C₂H₄O₂", "C₆H₁₂O₆ فقط"], "c": 0, "why": "تقسم المؤشرات على 6 للحصول على CH₂O."}, {"level": "صعب", "q": "ما عدد مولات NaOH في 250 mL من محلول تركيزه 2 mol/L؟", "a": ["0.5 mol", "2 mol", "0.125 mol"], "c": 0, "why": "n = C×V = 2×0.250 = 0.5 mol."}, {"level": "صعب", "q": "ما حجم محلول تركيزه 0.5 mol/L يحتوي 0.2 mol مذاب؟", "a": ["0.4 L", "0.1 L", "2.5 L"], "c": 0, "why": "V=n/C=0.2/0.5=0.4 L."}, {"level": "صعب", "q": "في الاتزان الكيميائي الديناميكي، ما الصحيح؟", "a": ["سرعتا التفاعل الأمامي والعكسي متساويتان", "يتوقف التفاعلان تمامًا", "تتساوى تراكيز كل المواد دائمًا"], "c": 0, "why": "الاتزان يعني تساوي السرعتين لا توقف التفاعل."}, {"level": "صعب", "q": "إذا زاد الضغط على اتزان غازي، نحو أي جهة يميل وفق لوشاتيليه غالبًا؟", "a": ["الجهة ذات مولات الغاز الأقل", "الجهة ذات مولات الغاز الأكثر دائمًا", "لا يتأثر أي اتزان"], "c": 0, "why": "زيادة الضغط تفضل الجهة الأقل مولات غازية إذا اختلف العدد."}, {"level": "صعب", "q": "أي عملية تطلق حرارة إلى الوسط؟", "a": ["طاردة للحرارة", "ماصة للحرارة", "متعادلـة بالضرورة"], "c": 0, "why": "التفاعل الطارد ينقل الحرارة إلى الوسط."}, {"level": "صعب", "q": "في تفاعل ماص للحرارة، تكون إشارة ΔH؟", "a": ["موجبة", "سالبة", "صفر دائمًا"], "c": 0, "why": "النظام يمتص حرارة فتكون ΔH موجبة."}, {"level": "صعب", "q": "ما دور الجسر الملحي في خلية جلفانية؟", "a": ["إكمال الدائرة والمحافظة على التعادل الأيوني", "إيقاف انتقال الأيونات", "زيادة كتلة الأقطاب من العدم"], "c": 0, "why": "يسمح بحركة الأيونات للمحافظة على الاتزان الكهربائي."}, {"level": "صعب", "q": "أين يحدث الأكسدة في الخلية الكهروكيميائية؟", "a": ["عند المصعد (الأنود)", "عند المهبط دائمًا", "في الجسر الملحي فقط"], "c": 0, "why": "الأكسدة عند الأنود."}, {"level": "صعب", "q": "ما تعريف العامل المؤكسد؟", "a": ["يكتسب إلكترونات ويُختزل", "يفقد إلكترونات دائمًا", "لا يشارك في انتقال الإلكترونات"], "c": 0, "why": "المؤكسد يؤكسد غيره ويُختزل هو."}, {"level": "صعب", "q": "في Fe₂O₃، إذا كان الأكسجين −2، فما عدد تأكسد كل Fe؟", "a": ["+3", "+2", "+6"], "c": 0, "why": "2Fe + 3(−2)=0؛ Fe=+3."}, {"level": "صعب", "q": "ما نوع التهجين في الكربون في CH₄؟", "a": ["sp³", "sp²", "sp"], "c": 0, "why": "الميثان ذو شكل رباعي السطوح وتهجين sp³."}, {"level": "صعب", "q": "ما الشكل الهندسي لجزيء CO₂؟", "a": ["خطي", "منحني", "رباعي السطوح"], "c": 0, "why": "حول الكربون منطقتا كثافة إلكترونية؛ الجزيء خطي."}, {"level": "صعب", "q": "أي رابطة أقصر وأقوى غالبًا بين روابط الكربون-كربون؟", "a": ["ثلاثية", "مفردة", "جميعها متساوية"], "c": 0, "why": "رتبة الرابطة الأعلى ترتبط غالبًا بطول أقصر وقوة أكبر."}, {"level": "صعب", "q": "ما عدد مولات الإلكترونات المنقولة عند تحول Al إلى Al³⁺؟", "a": ["3 مول إلكترونات لكل مول Al", "1 مول", "6 مول"], "c": 0, "why": "كل ذرة Al تفقد 3 إلكترونات."}, {"level": "صعب", "q": "إذا كانت كتلة المتفاعل المحدد أقل من المطلوب ستوكيومتريًا، فما أثره؟", "a": ["يحدد الحد الأقصى للناتج", "يزيد الناتج بلا حد", "لا يؤثر في كمية الناتج"], "c": 0, "why": "المتفاعل المحدد ينفد أولًا ويحدد الناتج النظري."}, {"level": "متوسط", "q": "ما الصيغة الأيونية لكبريتات الصوديوم؟", "a": ["Na₂SO₄", "NaSO₄", "Na₂S"], "c": 0, "why": "شحنة الكبريتات 2− ويحتاج إلى أيوني صوديوم."}, {"level": "متوسط", "q": "ما ناتج تفاعل حمض مع قاعدة غالبًا؟", "a": ["ملح وماء", "فلز وأكسجين", "عنصر واحد فقط"], "c": 0, "why": "التعادل الحمضي القاعدي ينتج ملحًا وماءً غالبًا."}, {"level": "صعب", "q": "ما كتلة 0.25 mol من NaCl (M≈58.5 g/mol)؟", "a": ["14.625 g", "58.5 g", "234 g"], "c": 0, "why": "m=nM=0.25×58.5=14.625 g."}, {"level": "صعب", "q": "ما التركيز المولاري لـ 0.3 mol مذاب في 0.6 L محلول؟", "a": ["0.5 mol/L", "2 mol/L", "0.18 mol/L"], "c": 0, "why": "C=n/V=0.3/0.6=0.5 mol/L."}];
+
+async function loadPublicSharedContent(){
+ if(!supabaseClient)return;
+ try{
+   const [lessonsRes, settingsRes, questionsRes] = await Promise.all([
+     supabaseClient.from('app_content').select('id,title,body').order('created_at',{ascending:true}),
+     supabaseClient.from('app_settings').select('key,value'),
+     supabaseClient.from('app_questions').select('id,lesson,question,answers,correct_index,level,explanation').order('created_at',{ascending:true})
+   ]);
+   if(!lessonsRes.error){
+     const rows=(lessonsRes.data||[]).map(x=>({id:x.id,title:x.title||'',body:x.body||''}));
+     localStorage.setItem(OWNER_LESSONS_KEY,JSON.stringify(rows));
+     ownerRenderLessonContent();
+   }
+   if(!settingsRes.error){
+     for(const row of (settingsRes.data||[])){
+       if(row.key==='welcome'){
+         const v=typeof row.value==='string'?row.value:row.value;
+         if(typeof v==='string'){const card=document.getElementById('homeWelcomeText');if(card)card.textContent=v;}
+       }
+       if(row.key==='theme' && row.value && typeof row.value==='object'){
+         const t=row.value, root=document.documentElement;
+         if(t.mint)root.style.setProperty('--mint',t.mint);
+         if(t.bg)root.style.setProperty('--bg',t.bg);
+         if(t.panel)root.style.setProperty('--panel',t.panel);
+         if(t.text)root.style.setProperty('--text',t.text);
+       }
+     }
+   }
+   if(!questionsRes.error){
+     const rows=(questionsRes.data||[]).map(x=>({id:x.id,lesson:x.lesson||'',q:x.question||'',a:Array.isArray(x.answers)?x.answers:[],c:Number(x.correct_index||0),level:x.level||'متوسط',why:x.explanation||''}));
+     localStorage.setItem(OWNER_QUESTIONS_KEY,JSON.stringify(rows));
+     if(typeof getQuizQuestions==='function')questions=getQuizQuestions();
+   }
+ }catch(e){console.warn('Supabase public content load failed',e);}
+}
 const OWNER_QUESTIONS_KEY="oc_owner_questions_v1";
 function getQuizQuestions(){try{return baseQuestions.concat(JSON.parse(localStorage.getItem(OWNER_QUESTIONS_KEY)||"[]"))}catch(e){return baseQuestions}}
 let questions=getQuizQuestions(),qi=-1,score=0,answered=false;
 function nextQuestion(){questions=getQuizQuestions();qi=(qi+1)%questions.length;answered=false;let q=questions[qi];document.getElementById("quizArea").dataset.started="1";document.getElementById("quizArea").innerHTML=`<div class="muted">السؤال ${qi+1} من ${questions.length} • المستوى: ${q.level||"متوسط"}${q.lesson?" • الدرس: "+escapeOwnerHtml(q.lesson):""}</div><b>${qi+1}. ${q.q}</b>`+q.a.map((a,i)=>`<button class="option" onclick="answer(${i})">${a}</button>`).join("")+'<div id="quizFeedback" class="muted"></div>';document.getElementById("quizScore").textContent="النتيجة: "+score+" | عدد الأسئلة: "+questions.length}
 function answer(i){if(answered)return;answered=true;let q=questions[qi];if(i===q.c)score++;let opts=document.querySelectorAll("#quizArea .option");opts[q.c].classList.add("correct");if(i!==q.c)opts[i].classList.add("wrong");document.getElementById("quizFeedback").textContent=(i===q.c?"إجابة صحيحة! ":"ليست صحيحة. ")+q.why;document.getElementById("quizScore").textContent="النتيجة: "+score+" من "+(qi+1)}
 function ownerGetQuestions(){try{return JSON.parse(localStorage.getItem(OWNER_QUESTIONS_KEY)||"[]")}catch(e){return []}}
-function ownerAddQuestion(){const lesson=document.getElementById("newQuestionLesson").value.trim(),q=document.getElementById("newQuestionText").value.trim(),a=[document.getElementById("newQuestionA").value.trim(),document.getElementById("newQuestionB").value.trim(),document.getElementById("newQuestionC").value.trim()],c=Number(document.getElementById("newQuestionCorrect").value),level=document.getElementById("newQuestionLevel").value,why=document.getElementById("newQuestionWhy").value.trim();if(!q||a.some(x=>!x)){alert("اكتب السؤال والخيارات الثلاثة.");return}const arr=ownerGetQuestions();arr.push({id:Date.now(),lesson,q,a,c,level,why:why||"راجع شرح الدرس المرتبط بالسؤال."});localStorage.setItem(OWNER_QUESTIONS_KEY,JSON.stringify(arr));["newQuestionLesson","newQuestionText","newQuestionA","newQuestionB","newQuestionC","newQuestionWhy"].forEach(id=>document.getElementById(id).value="");ownerRenderQuestions();questions=getQuizQuestions();alert("تمت إضافة السؤال إلى الاختبار.")}
-function ownerDeleteQuestion(id){if(!confirm("حذف هذا السؤال؟"))return;localStorage.setItem(OWNER_QUESTIONS_KEY,JSON.stringify(ownerGetQuestions().filter(x=>x.id!==id)));ownerRenderQuestions()}
+async function ownerAddQuestion(){const lesson=document.getElementById("newQuestionLesson").value.trim(),q=document.getElementById("newQuestionText").value.trim(),a=[document.getElementById("newQuestionA").value.trim(),document.getElementById("newQuestionB").value.trim(),document.getElementById("newQuestionC").value.trim()],c=Number(document.getElementById("newQuestionCorrect").value),level=document.getElementById("newQuestionLevel").value,why=document.getElementById("newQuestionWhy").value.trim();if(!q||a.some(x=>!x)){alert("اكتب السؤال والخيارات الثلاثة.");return}if(!currentIsAdmin)return alert('سجّل الدخول بحساب المالك أولًا.');const {error}=await supabaseClient.from('app_questions').insert({lesson,question:q,answers:a,correct_index:c,level,explanation:why||'راجع شرح الدرس المرتبط بالسؤال.'});if(error)return alert('تعذّر حفظ السؤال: '+error.message);["newQuestionLesson","newQuestionText","newQuestionA","newQuestionB","newQuestionC","newQuestionWhy"].forEach(id=>document.getElementById(id).value="");await ownerLoadSharedQuestions();alert("تم حفظ السؤال في قاعدة البيانات المشتركة.");}
+async function ownerDeleteQuestion(id){if(!confirm("حذف هذا السؤال من قاعدة البيانات المشتركة؟"))return;if(!currentIsAdmin)return alert('سجّل الدخول بحساب المالك أولًا.');const {error}=await supabaseClient.from('app_questions').delete().eq('id',id);if(error)return alert('تعذّر الحذف: '+error.message);await ownerLoadSharedQuestions();}
 function ownerRenderQuestions(){const el=document.getElementById("ownerQuestionList");if(!el)return;const a=ownerGetQuestions();el.innerHTML=a.length?a.map((x,i)=>`<div class="lesson"><b>${escapeOwnerHtml(x.q)}</b><p class="muted">${escapeOwnerHtml(x.lesson||"دون درس محدد")} • ${escapeOwnerHtml(x.level||"متوسط")}</p><button class="secondary" onclick="ownerDeleteQuestion(${Number(x.id||i)})">حذف</button></div>`).join(""):"لم تضف أسئلة مخصصة بعد."}
 function renderLab(){let n=+document.getElementById('waterCount').value;document.getElementById('labVisual').innerHTML=`<div style="font-size:22px">🔵 ${2*n}H₂ + 🔴 ${n}O₂ → 💧 ${2*n}H₂O</div><p class="muted">في النموذج: ${4*n} ذرات هيدروجين و${2*n} ذرات أكسجين على كل طرف.</p>`}
 let state=0;function cycleState(){state=(state+1)%3;let states=['🧊 ماء صلب (جليد)','💧 ماء سائل','☁️ بخار ماء'];document.getElementById('stateVisual').textContent=states[state]+' — الصيغة الكيميائية H₂O'}
@@ -298,5 +518,6 @@ let match=matches[0];
 out.innerHTML='<b>المعادلة المكتملة والموزونة</b><div dir="ltr" style="font-size:21px;color:var(--mint);margin:8px 0">'+match.eq.replace(/([A-Za-z])([0-9]+)/g,'$1<sub>$2</sub>')+'</div><b>النواتج:</b> '+(missR?match.product:match.reactants.join(' + '))+'<p class="muted">'+match.note+'</p><p class="muted">تظهر النتيجة تلقائيًا عند كتابة المتفاعلات، إذا كان التفاعل موجودًا في مكتبة الأمثلة.</p>'}
 
 renderElements();renderLab();molarMass();renderCompounds();renderReaction();if(document.getElementById('completionInput'))loadCompletionPreset();
+loadPublicSharedContent();
 </script>
 </body></html>
